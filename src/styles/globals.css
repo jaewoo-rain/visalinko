@@ -1,0 +1,227 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  background-color: #f0f2f5; /* Light gray background */
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-content: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+  max-width: 500px;
+  background: white;
+  min-height: 100vh;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex-grow: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content-area {
+  flex-grow: 1;
+  padding-bottom: 20px; /* Space for footer */
+}
+
+h1,
+h2,
+h3 {
+  color: #333;
+  margin-top: 0;
+}
+
+p {
+  color: #555;
+  line-height: 1.6;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.flex-gap-10 {
+  display: flex;
+  gap: 10px;
+}
+
+/* Card styles */
+.card-option {
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-align: left;
+}
+.card-option:hover {
+  border-color: #007bff;
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.1);
+}
+.card-option.selected {
+  border-color: #007bff;
+  background-color: #e6f2ff;
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2);
+}
+.card-option h3 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #007bff;
+}
+.card-option p {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 0;
+}
+
+/* Form styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+}
+
+.radio-group-container {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.radio-button {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s ease;
+  background-color: #f5f5f5;
+  color: #555;
+}
+
+.radio-button:hover {
+  border-color: #007bff;
+}
+
+.radio-button.selected {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+/* Specific styles for Onboarding pages */
+.onboarding-flow-selector {
+  margin-top: 30px;
+}
+.onboarding-flow-selector .card-option {
+  text-align: center;
+}
+.onboarding-flow-selector .card-option h3 {
+  font-size: 1.2em;
+}
+.onboarding-flow-selector .card-option p {
+  font-size: 1em;
+}
+
+.step-content {
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.header .action-buttons button {
+  background: none;
+  border: none;
+  color: #007bff;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.2s;
+}
+
+.header .action-buttons button:hover {
+  background-color: #f0f7ff;
+}
+
+.header .action-buttons button + button {
+  margin-left: 10px;
+  background-color: #007bff;
+  color: white;
+}
+
+.header .action-buttons button + button:hover {
+  background-color: #0056b3;
+}
+
+.progress-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.progress-header h3 {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.progress-header .step-label {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  background-color: #e6f2ff;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.footer-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 30px;
+}
