@@ -1,8 +1,7 @@
 import React from 'react';
 import { useOnboardingFlow } from '../../../hooks/useOnboardingFlow';
 import OnboardingFooter from '../OnboardingFooter';
-import Input from '../../ui/Input';
-import Select from '../../ui/Select';
+import styles from './WorkConditionsStep.module.css'; // ★ CSS 모듈 임포트
 
 const WorkConditionsStep = () => {
   const { formData, setFormData } = useOnboardingFlow();
@@ -10,30 +9,29 @@ const WorkConditionsStep = () => {
   const jobs = ['생산', '건설, 건축', '구매, 자재, 물류', '회계, 세무, 재무', '기획, 전략', '마케팅, 홍보', '인사, 노무', '총무, 법무', '디자인'];
   const days = ['월', '화', '수', '목', '금', '토', '일', '변동'];
 
-  // 다중 선택 처리 함수
   const toggleSelection = (key: string, item: string) => {
-    const currentList = (formData[key] as string[]) || [];
-    const newList = currentList.includes(item)
-      ? currentList.filter(i => i !== item)
-      : [...currentList, item];
-    setFormData(key, newList);
+    const list = (formData[key] as string[]) || [];
+    const next = list.includes(item) ? list.filter(i => i !== item) : [...list, item];
+    setFormData(key, next);
   };
 
   return (
     <div className="container">
-      <div className="content-area">
-        <div className="progress-header">
-          <span className="step-label">● STEP 2</span>
-          <h3>근무 조건 입력</h3>
-        </div>
+      <div className={styles.header}>
+        {/* Step Indicator는 공통 컴포넌트라 여기선 생략하거나 별도 사용 */}
+      </div>
 
-        <div className="form-group">
-          <label>담당 업무</label>
-          <div style={{ marginTop: '10px' }}>
+      <div className="content-area">
+        <h3 className={styles.stepLabel}>STEP 2</h3>
+        <h2>근무 조건 입력</h2>
+        
+        <div style={{ marginTop: '30px' }}>
+          <label className={styles.formLabel}>담당 업무</label>
+          <div className={styles.tagContainer}>
             {jobs.map(job => (
-              <div
-                key={job}
-                className={`selectable-tag ${(formData.jobs || []).includes(job) ? 'active' : ''}`}
+              <div 
+                key={job} 
+                className={`${styles.selectableTag} ${(formData.jobs || []).includes(job) ? styles.active : ''}`}
                 onClick={() => toggleSelection('jobs', job)}
               >
                 {job}
@@ -42,13 +40,13 @@ const WorkConditionsStep = () => {
           </div>
         </div>
 
-        <div className="form-group">
-          <label>근무 요일</label>
-          <div style={{ marginTop: '10px' }}>
+        <div>
+          <label className={styles.formLabel}>근무 요일</label>
+          <div className={styles.tagContainer}>
             {days.map(day => (
-              <div
-                key={day}
-                className={`selectable-tag ${(formData.days || []).includes(day) ? 'active' : ''}`}
+              <div 
+                key={day} 
+                className={`${styles.selectableTag} ${(formData.days || []).includes(day) ? styles.active : ''}`}
                 onClick={() => toggleSelection('days', day)}
               >
                 {day}
@@ -57,15 +55,22 @@ const WorkConditionsStep = () => {
           </div>
         </div>
 
-        <div className="form-group">
-          <label>근무 시간</label>
+        <div>
+          <label className={styles.formLabel}>근무 시간</label>
           <div className="grid-2">
-            <Select options={[{value: '09:00', label: '09:00'}]} defaultValue="09:00" />
-            <Select options={[{value: '18:00', label: '18:00'}]} defaultValue="18:00" />
+            <select className={styles.inputField}>
+              <option>09:00</option>
+            </select>
+            <select className={styles.inputField}>
+              <option>18:00</option>
+            </select>
           </div>
         </div>
 
-        <Input label="급여 (월 급여 예상)" placeholder="0" />
+        <div>
+          <label className={styles.formLabel}>급여 (월 예상)</label>
+          <input type="text" className={styles.inputField} placeholder="0원" style={{ textAlign: 'right' }} />
+        </div>
       </div>
       <OnboardingFooter />
     </div>

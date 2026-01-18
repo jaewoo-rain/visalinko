@@ -1,52 +1,48 @@
 import React from 'react';
 
+// 간단한 스타일 객체 정의
+const styles = {
+  base: {
+    width: '100%',
+    padding: '16px',
+    borderRadius: '12px',
+    border: 'none',
+    fontSize: '16px',
+    fontWeight: 700,
+    cursor: 'pointer',
+    transition: 'background-color 0.2s',
+  },
+  primary: {
+    backgroundColor: '#007bff',
+    color: 'white',
+  },
+  secondary: {
+    backgroundColor: '#f1f3f5',
+    color: '#333',
+  },
+  disabled: {
+    backgroundColor: '#d0e4ff',
+    cursor: 'not-allowed',
+  }
+};
+
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  variant?: 'primary' | 'secondary' | 'ghost';
+  variant?: 'primary' | 'secondary';
   fullWidth?: boolean;
 }
 
-const Button = ({ children, variant = 'primary', fullWidth = false, ...props }: ButtonProps) => {
-  const baseStyle: React.CSSProperties = {
-    padding: '12px 20px',
-    borderRadius: '8px',
-    border: 'none',
-    fontWeight: 'bold',
-    cursor: props.disabled ? 'not-allowed' : 'pointer',
-    width: fullWidth ? '100%' : 'auto',
-    fontSize: '1rem',
-    transition: 'background-color 0.2s ease, opacity 0.2s ease',
-    opacity: props.disabled ? 0.6 : 1,
-    whiteSpace: 'nowrap', // 텍스트 줄바꿈 방지
-  };
-
-  const variantStyles = {
-    primary: {
-      backgroundColor: '#007bff',
-      color: 'white',
-      '&:hover': {
-        backgroundColor: '#0056b3',
-      },
-    },
-    secondary: {
-      backgroundColor: '#f0f2f5',
-      color: '#333',
-      border: '1px solid #ccc',
-      '&:hover': {
-        backgroundColor: '#e0e0e0',
-      },
-    },
-    ghost: {
-      backgroundColor: 'transparent',
-      color: '#007bff',
-      '&:hover': {
-        backgroundColor: '#e6f2ff',
-      },
-    },
+const Button = ({ children, variant = 'primary', style, disabled, ...props }: ButtonProps) => {
+  // 스타일 합치기
+  const buttonStyle = {
+    ...styles.base,
+    ...(variant === 'primary' ? styles.primary : styles.secondary),
+    ...(disabled ? styles.disabled : {}),
+    ...style, // 외부에서 주입된 스타일 덮어쓰기
   };
 
   return (
-    <button style={{ ...baseStyle, ...variantStyles[variant] }} {...props}>
+    <button style={buttonStyle as React.CSSProperties} disabled={disabled} {...props}>
       {children}
     </button>
   );

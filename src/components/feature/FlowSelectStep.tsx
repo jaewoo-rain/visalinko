@@ -1,39 +1,50 @@
 import React from 'react';
 import { useOnboardingFlow } from '../../hooks/useOnboardingFlow';
 import OnboardingFooter from './OnboardingFooter';
+import styles from './FlowSelectStep.module.css'; // ★ CSS 모듈 임포트
 
 const FlowSelectStep = () => {
   const { userFlow, handleSelectFlow, goToNextStep } = useOnboardingFlow();
 
   return (
     <div className="container">
-      <div className="content-area text-center">
-        <h2 style={{ fontSize: '1.8rem', marginBottom: '40px' }}>원하시는 서비스를 선택해주세요</h2>
+      <div className="content-area">
+        <div style={{ marginTop: '40px', textAlign: 'center' }}>
+          <h2>원하시는 서비스를<br />선택해주세요</h2>
+        </div>
         
-        <div className="onboarding-flow-selector">
+        {/* styles.클래스명 형태로 사용 */}
+        <div className={styles.cardContainer}>
           <div 
-            className={`card-option ${userFlow === 'seeker' ? 'selected' : ''}`}
+            className={`${styles.cardOption} ${userFlow === 'seeker' ? styles.selected : ''}`}
             onClick={() => handleSelectFlow('seeker')}
-            style={{ padding: '30px' }}
           >
-            <div className="icon">🔍</div>
-            <h3>구직</h3>
-            <p>일자리 찾기</p>
-            <p style={{ fontSize: '0.8rem', color: '#888' }}>간단한 정보를 입력하고<br/>5분 이내에 일자리를 찾아보세요</p>
+            <span className={styles.cardIcon}>💼</span>
+            <span className={styles.cardTitle}>구직</span>
+            <span className={styles.cardDesc}>일자리 찾기</span>
           </div>
 
           <div 
-            className={`card-option ${userFlow === 'employer' ? 'selected' : ''}`}
+            className={`${styles.cardOption} ${userFlow === 'employer' ? styles.selected : ''}`}
             onClick={() => handleSelectFlow('employer')}
-            style={{ padding: '30px' }}
           >
-            <div className="icon">🤝</div>
-            <h3>구인</h3>
-            <p>근로자 찾기</p>
-            <p style={{ fontSize: '0.8rem', color: '#888' }}>기업 정보를 입력하고<br/>5분 이내에 이력서를 받아보세요</p>
+            <span className={styles.cardIcon}>🏢</span>
+            <span className={styles.cardTitle}>구인</span>
+            <span className={styles.cardDesc}>근로자 찾기</span>
           </div>
         </div>
+
+        {userFlow && (
+           <div className={styles.infoBox}>
+             <p className={styles.infoText}>
+               {userFlow === 'seeker' 
+                 ? "간단한 정보를 입력하고 5분 이내에 일자리를 찾아보세요."
+                 : "기업 정보를 입력하고 5분 이내에 이력서를 받아보세요."}
+             </p>
+           </div>
+        )}
       </div>
+      
       <OnboardingFooter 
         isNextDisabled={!userFlow} 
         onNextClick={goToNextStep}
