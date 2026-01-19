@@ -4,18 +4,17 @@ type StepIndicatorProps = {
 };
 
 const STEPS = [
-    { step: 1, label: "업체 정보 입력" },
-    { step: 2, label: "근무 조건 입력" },
-    { step: 3, label: "추가 사항 입력" },
+    { step: 1, label: "지원자 정보 입력" },
+    { step: 2, label: "AI 상담 신청" },
 ] as const;
 
-export default function StepIndicator({
+export default function StepSeeker({
     currentStep,
     className = "",
 }: StepIndicatorProps) {
     return (
         <div
-            className={`flex justify-center gap-10 mb-4 font-medium text-gray-400 ${className}`}
+            className={`hidden sm:flex justify-center gap-10 mb-4 font-medium text-gray-400 ${className}`}
         >
             {STEPS.map(({ step, label }) => {
                 const isActive = currentStep === step;

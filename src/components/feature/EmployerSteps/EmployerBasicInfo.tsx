@@ -2,7 +2,7 @@
 import { Input } from '../../ui/Input';
 import { Button } from '../../ui/Button';
 import { useOnboarding } from '../../../hooks/useOnboarding';
-import StepIndicator from '../../ui/StepIndicator';
+import StepEmployer from '../../ui/StepEmployer';
 import { useState } from 'react';
 import OpenDateInput, { OpenDateValue } from '../../ui/OpenDateInput';
 import Label from '../../ui/Label';
@@ -32,7 +32,7 @@ export const EmployerBasicInfo = () => {
 
   return (
     <div className=''>
-      <StepIndicator currentStep={1} />
+      <StepEmployer currentStep={1} />
       {/* <SectionTitle title="업체 정보 입력" /> */}
 
       <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm space-y-6">

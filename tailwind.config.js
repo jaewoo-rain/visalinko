@@ -11,7 +11,19 @@ export default {
         primary: "#0066FF", // Visalinko Blue
         secondary: "#6B7280",
         background: "#F9FAFB",
-      }
+      },
+      fontFamily: {
+        pretendard: [
+          "Pretendard",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "system-ui",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "sans-serif",
+        ],
+      },
     },
   },
   plugins: [],

@@ -8,7 +8,7 @@ import { useOnboarding } from '../../../hooks/useOnboarding';
 import Label from '../../ui/Label';
 import WeekdaySelector from '../../ui/WeekdaySelector';
 import { useState } from 'react';
-import StepIndicator from '../../ui/StepIndicator';
+import StepEployer from '../../ui/StepEmployer';
 
 type Weekday = "월" | "화" | "수" | "목" | "금" | "토" | "일" | "변동";
 
@@ -23,7 +23,7 @@ export const EmployerConditions = () => {
 
   return (
     <div>
-      <StepIndicator currentStep={2} />
+      <StepEployer currentStep={2} />
 
       {/* <SectionTitle title="근무 조건 입력" /> */}
 

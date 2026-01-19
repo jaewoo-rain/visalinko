@@ -3,7 +3,7 @@ import { SectionTitle } from '../../ui/SectionTitle';
 import { Input } from '../../ui/Input';
 import { Button } from '../../ui/Button';
 import { useOnboarding } from '../../../hooks/useOnboarding';
-import StepIndicator from '../../ui/StepIndicator';
+import StepEmployer from '../../ui/StepEmployer';
 import Label from '../../ui/Label';
 
 export const EmployerAdditional = () => {
@@ -11,7 +11,7 @@ export const EmployerAdditional = () => {
 
   return (
     <div>
-      <StepIndicator currentStep={3} />
+      <StepEmployer currentStep={3} />
 
       {/* <SectionTitle title="추가 사항 입력" /> */}
 

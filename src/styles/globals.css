@@ -1,10 +1,13 @@
 /* 파일: src/styles/globals.css */
+@import "pretendard/dist/web/static/pretendard.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
   --font-base: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+
 }
 
 body {
@@ -16,5 +19,5 @@ body {
 /* Custom Reset additions if needed */
 input[type="date"],
 input[type="time"] {
-    -webkit-appearance: none;
+  -webkit-appearance: none;
 }
