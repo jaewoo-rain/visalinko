@@ -18,12 +18,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             await cachedClient.connect();
         }
 
-        // ✅ URI에 /onboarding 넣었으면 db("onboarding") 생략 가능
         const db = cachedClient.db();
-        const collection = db.collection("seeker");
+
+        const { role = "seeker", ...data } = req.body;
+
+        const collection =
+            role === "employer" ? db.collection("employer") : db.collection("seeker");
 
         const result = await collection.insertOne({
-            ...req.body,
+            ...data, // role 제외한 데이터만 저장
+            // role, // 필요하면 role만 따로 저장
             createdAt: new Date(),
         });
 

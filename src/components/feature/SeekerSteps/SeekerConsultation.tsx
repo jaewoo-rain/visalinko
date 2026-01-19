@@ -72,7 +72,7 @@ export const SeekerConsultation = () => {
     try {
       console.log("전송 데이터:", onboardingAll);
 
-      await submitConsultation(onboardingAll);
+      await submitConsultation({ ...onboardingAll, role: "seeker" });
 
       handleNext();
     } catch (e) {
