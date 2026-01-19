@@ -13,8 +13,7 @@ import { LANGUAGE_OPTIONS } from "../../../constants/languages";
 
 import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 import { setCountry, setLang, setChannel } from "../../../store/slices/seekerOnboardingSlice";
-
-// import { submitConsultation } from "../../../api/consultation";
+import { submitConsultation } from "../../../api/consultation";
 
 type ChannelValue = "kakao" | "line" | "whatsapp";
 
@@ -69,24 +68,24 @@ export const SeekerConsultation = () => {
     );
   };
 
-  // const onSubmit = async () => {
-  //   try {
-  //     console.log("전송 데이터:", onboardingAll);
+  const onSubmit = async () => {
+    try {
+      console.log("전송 데이터:", onboardingAll);
 
-  //     await submitConsultation(onboardingAll);
+      await submitConsultation(onboardingAll);
 
-  //     handleNext();
-  //   } catch (e) {
-  //     console.error("상담 신청 실패", e);
-  //   }
-  // };
-
-  const onSubmit = () => {
-    // ✅ 나중에 여기서 MongoDB 저장 붙이면 됨
-    console.log("✅ 최종 온보딩 데이터:", onboardingAll);
-
-    handleNext();
+      handleNext();
+    } catch (e) {
+      console.error("상담 신청 실패", e);
+    }
   };
+
+  // const onSubmit = () => {
+  //   // ✅ 나중에 여기서 MongoDB 저장 붙이면 됨
+  //   console.log("✅ 최종 온보딩 데이터:", onboardingAll);
+
+  //   handleNext();
+  // };
 
   return (
     <div>
