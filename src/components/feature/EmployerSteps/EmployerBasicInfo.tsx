@@ -25,17 +25,7 @@ export const EmployerBasicInfo = () => {
 
   const basic = useAppSelector((s) => s.employerOnboarding.basicInfo);
 
-  const handleSubmit = () => {
-    const y = basic.openDate.year;
-    const m = basic.openDate.month.padStart(2, "0");
-    const d = basic.openDate.day.padStart(2, "0");
-    // const dateString = `${y}-${m}-${d}`;
-    // console.log("개업일:", dateString);
-    // console.log("전체 basicInfo:", basic);
-  };
-
   const onNext = () => {
-    handleSubmit();
     handleNext();
   };
 
