@@ -8,7 +8,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#0066FF", // Visalinko Blue
+        primary: "#0066FF",
         secondary: "#6B7280",
         background: "#F9FAFB",
       },

@@ -15,6 +15,7 @@ import { SeekerBasicInfo } from './components/feature/SeekerSteps/SeekerBasicInf
 import { SeekerConsultation } from './components/feature/SeekerSteps/SeekerConsultation';
 
 import { ROUTE_PATHS } from './constants/routes';
+import { AdminPage } from './components/feature/Admin/adminPage';
 
 function App() {
   return (
@@ -36,6 +37,9 @@ function App() {
           <Route path={ROUTE_PATHS.SEEKER.BASIC_INFO} element={<SeekerBasicInfo />} />
           <Route path={ROUTE_PATHS.SEEKER.CONSULTATION} element={<SeekerConsultation />} />
           <Route path={ROUTE_PATHS.SEEKER.COMPLETE} element={<CompletionSlide />} />
+
+          {/* ADMIN페이지 */}
+          <Route path={ROUTE_PATHS.ADMIN.MAIN} element={<AdminPage />} />
 
           {/* 4. 잘못된 경로 처리 */}
           <Route path="*" element={<Navigate to="/" replace />} />

@@ -10,7 +10,7 @@ export const Header = () => {
     >
       <div className="max-w-[800px] w-full h-full mx-auto flex items-center justify-between px-4 md:px-6">
         <div className="text-primary font-bold text-xl md:text-2xl">
-          VISALINKO
+          LINKOTOVISA
         </div>
 
         <div className="flex gap-2">

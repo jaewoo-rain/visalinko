@@ -17,6 +17,9 @@ export const ROUTE_PATHS = {
     CONSULTATION: '/seeker/consultation',
     COMPLETE: '/seeker/complete',
   },
+  ADMIN: {
+    MAIN: '/admin/linkotovisa'
+  }
 } as const;
 
 // 순서 정의 (다음 버튼 클릭 시 이동할 순서)
