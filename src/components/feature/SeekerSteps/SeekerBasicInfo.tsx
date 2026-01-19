@@ -24,7 +24,6 @@ export const SeekerBasicInfo = () => {
   const onlyDigits = (v: string) => v.replace(/\D/g, "");
 
   const onSubmit = () => {
-    console.log("Step1:", { name, birth, gender, phone });
     handleNext();
   };
 

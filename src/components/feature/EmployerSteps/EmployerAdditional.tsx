@@ -8,6 +8,8 @@ import { ToggleButtonGroup } from "../../ui/ToggleButtonGroup";
 import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 import { submitConsultation } from "../../../api/consultation";
 import { LoadingOverlay } from "../../ui/LoadingOverlay";
+import { resetEmployerOnboarding } from "../../../store/slices/employerOnboardingSlice";
+import { resetSeekerOnboarding } from "../../../store/slices/seekerOnboardingSlice";
 
 import {
   setCareers,
@@ -35,9 +37,11 @@ export const EmployerAdditional = () => {
 
     setIsSubmitting(true);
     try {
-      console.log("전송 데이터:", onboardingAll);
+      // console.log("전송 데이터:", onboardingAll);
 
       await submitConsultation({ ...onboardingAll, role: "employer" });
+      dispatch(resetEmployerOnboarding());
+      dispatch(resetSeekerOnboarding());
 
       handleNext();
     } catch (e) {

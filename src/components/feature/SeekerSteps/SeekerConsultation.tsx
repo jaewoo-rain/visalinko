@@ -15,6 +15,8 @@ import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 import { setCountry, setLang, setChannel } from "../../../store/slices/seekerOnboardingSlice";
 import { submitConsultation } from "../../../api/consultation";
 import { LoadingOverlay } from "../../ui/LoadingOverlay";
+import { resetSeekerOnboarding } from "../../../store/slices/seekerOnboardingSlice";
+import { resetEmployerOnboarding } from "../../../store/slices/employerOnboardingSlice";
 
 type ChannelValue = "kakao" | "line" | "whatsapp";
 
@@ -80,6 +82,9 @@ export const SeekerConsultation = () => {
 
       await submitConsultation({ ...onboardingAll, role: "employer" });
 
+      dispatch(resetEmployerOnboarding());
+      dispatch(resetSeekerOnboarding());
+      
       handleNext();
     } catch (e) {
       console.error("상담 신청 실패", e);
