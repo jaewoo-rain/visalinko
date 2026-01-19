@@ -15,7 +15,7 @@ import { SeekerBasicInfo } from './components/feature/SeekerSteps/SeekerBasicInf
 import { SeekerConsultation } from './components/feature/SeekerSteps/SeekerConsultation';
 
 import { ROUTE_PATHS } from './constants/routes';
-import { AdminPage } from './components/feature/Admin/adminPage';
+import AdminPage from './pages/AdminPage';
 
 function App() {
   return (
