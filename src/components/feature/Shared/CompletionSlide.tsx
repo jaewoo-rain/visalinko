@@ -1,10 +1,12 @@
 // 파일: src/components/feature/Shared/CompletionSlide.tsx
+import { useNavigate } from 'react-router-dom';
 import { useOnboarding } from '../../../hooks/useOnboarding';
 import { Button } from '../../ui/Button';
 
 export const CompletionSlide = () => {
   const { userFlow } = useOnboarding();
   const isEmployer = userFlow === 'employer';
+  const navigate = useNavigate();
 
   return (
     <div className="flex flex-col items-center justify-center h-full min-h-[50vh]">
@@ -21,9 +23,26 @@ export const CompletionSlide = () => {
       </h2>
 
       <div className="mt-10 w-full space-y-3">
-        <Button fullWidth>{isEmployer ? "완료" : "상담 채널 입장하기"}</Button>
-        {!isEmployer && <Button fullWidth variant="ghost">홈으로</Button>}
-      </div>\
+        <Button
+          fullWidth
+          onClick={() => {
+            if (isEmployer) {
+              navigate("/");
+            } else {
+              console.log("상담 채널 입장하기 클릭");
+            }
+          }}
+        >
+          {isEmployer ? "완료" : "상담 채널 입장하기"}
+        </Button>
+
+        {!isEmployer && (
+          <Button fullWidth variant="ghost" onClick={() => navigate("/")}>
+            홈으로
+          </Button>
+        )}
+      </div>
+
       <img
         src="/images/bg-blur.png"
         alt=""
