@@ -19,8 +19,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         }
 
         // ✅ URI에 /onboarding 넣었으면 db("onboarding") 생략 가능
-        const db = cachedClient.db("onboarding");
-        const collection = db.collection("consultations");
+        const db = cachedClient.db();
+        const collection = db.collection("seeker");
 
         const result = await collection.insertOne({
             ...req.body,
