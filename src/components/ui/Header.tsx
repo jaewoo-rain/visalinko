@@ -16,9 +16,19 @@ export const Header = () => {
 
         <div className="flex gap-3 pr-3  cursor-pointer">
           <img
-            src='/images/icon-translation.png'
-            alt='번역'
+            src="/images/icon-translation.png"
+            alt="번역"
+            className="cursor-pointer"
+            onClick={() => {
+              const url = window.location.href;
+              window.open(
+                `https://translate.google.com/translate?sl=auto&tl=en&u=${encodeURIComponent(url)}`,
+                "_blank"
+              );
+            }}
           />
+
+
           <Button variant="outline" className="text-xs h-8 px-3 hidden md:block"
           >
             문의하기

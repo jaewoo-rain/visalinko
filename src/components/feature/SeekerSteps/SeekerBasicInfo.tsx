@@ -64,6 +64,8 @@ export const SeekerBasicInfo = () => {
         />
         <Input
           placeholder="12"
+          min={1}
+          max={12}
           inputMode="numeric"
           className="text-center"
           value={birth.month}
@@ -78,6 +80,8 @@ export const SeekerBasicInfo = () => {
         />
         <Input
           placeholder="31"
+          min={1}
+          max={31}
           inputMode="numeric"
           className="text-center"
           value={birth.day}
