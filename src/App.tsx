@@ -17,10 +17,12 @@ import { SeekerConsultation } from './components/feature/SeekerSteps/SeekerConsu
 import { ROUTE_PATHS } from './constants/routes';
 import AdminPage from './pages/AdminPage';
 import { InitSlide } from './components/feature/Shared/InitSlide';
+import ScrollToTop from "./components/common/ScrollToTop";
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Layout>
         <Routes>
           {/* 1. 홈 (역할 선택) */}
