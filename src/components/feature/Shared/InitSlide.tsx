@@ -5,9 +5,15 @@ export const InitSlide = () => {
 
     return (
         <div className="relative h-[90dvh] overflow-hidden">
-            {/* 콘텐츠 */}
-            <div className="relative z-10 flex flex-col items-center text-center px-6 pt-14">
-                <h1 className="text-3xl sm:text-[50px] leading-snug sm:leading-normal font-bold ">
+            {/* 중앙 콘텐츠 */}
+            <div className="
+                relative z-10
+                flex flex-col items-center justify-center
+                h-full
+                text-center
+                px-6
+            ">
+                <h1 className="text-3xl sm:text-[50px] leading-snug sm:leading-normal font-bold">
                     새로운 구인, 간편한 구직<br />
                     한국 취업은 링크투비자
                 </h1>
@@ -21,9 +27,8 @@ export const InitSlide = () => {
                     지금 바로 시작해보세요
                 </p>
 
-                {/* CTA 버튼 */}
                 <button
-                    onClick={() => navigate('/init')}
+                    onClick={() => navigate("/init")}
                     className="
                         mt-10
                         px-8 py-3
@@ -40,11 +45,18 @@ export const InitSlide = () => {
                 </button>
             </div>
 
-            {/* 하단 곡선 배경 */}
+            {/* 하단 이미지 */}
             <img
                 src="/images/bg-bt-all.png"
                 alt=""
-                className="pointer-events-none w-full h-[300px] object-cover mt-20"
+                className="
+                    pointer-events-none
+                    absolute bottom-0 left-0
+                    w-full
+                    h-[280px] sm:h-[340px]
+                    object-cover
+                    translate-y-1/3
+                "
             />
         </div>
     );
