@@ -27,6 +27,10 @@ export const Header = () => {
       select.dispatchEvent(new Event("change"));
     }
 
+    setTimeout(() => {
+      document.title = "LINKTOVISA";
+    }, 300);
+
     setOpenTranslate((v) => !v);
   };
 
