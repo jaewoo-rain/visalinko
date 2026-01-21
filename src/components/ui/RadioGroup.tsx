@@ -26,7 +26,7 @@ export const RadioGroup = ({ options, value, onChange }: RadioGroupProps) => {
             onClick={() => onChange(opt.value)}
             className={`
               flex items-center gap-3 p-4 rounded-lg border
-              transition-all duration-200
+              transition-all duration-200 
               ${isSelected
                 ? "border-[#0066FF] text-[#0066FF] bg-blue-50"
                 : "border-gray-200 text-gray-700 hover:bg-gray-50"
@@ -42,7 +42,7 @@ export const RadioGroup = ({ options, value, onChange }: RadioGroupProps) => {
               {opt.icon}
             </div>
 
-            <span className="font-medium">{opt.label}</span>
+            <span className="font-medium skiptranslate">{opt.label}</span>
           </button>
         );
       })}
